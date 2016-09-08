@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy:Policy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:govcontrol="http://xsd.tns.tibco.com/governance/models/govcontrol" xmlns:policy="http://tns.tibco.com/bw/model/core/policy" xmlns:template_2010="http://xsd.tns.tibco.com/governance/rule/template/2010" name="hashtesting.WssConsumer" policyId="bw.policy">
+  <configuration xsi:type="govcontrol:StandaloneRule" name="hashtesting.WssConsumer" template="template_2010:WssConsumer" templateVersion="1.1.0">
+    <groups paramGroupName="CredentialMapping">
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="CredentialMappingType" type="STRING" value="SAML"/>
+    </groups>
+    <groups paramGroupName="SAMLTokenCredentialMapping">
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="SamlTokenProfile" type="STRING" value="SAML 2.0 Token 1.1"/>
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="AssertionValidity" type="STRING" value="forever"/>
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="DigestAlgorithm" type="STRING" value="SHA256"/>
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="SignAlgorithmSuite" type="STRING" value="Basic128"/>
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="SignAssertionSelected" type="BOOLEAN" value="true"/>
+      <paramSettings xsi:type="govcontrol:SingleParamSetting" paramName="IdentityProvider" type="RESOURCE_INSTANCE" value="hashtesting.WssConsumer_SAMLIdentityProvider" resourceType="SubjectIdentityResource">
+        <refPropertyNames>SubjectISPStore</refPropertyNames>
+      </paramSettings>
+    </groups>
+  </configuration>
+</policy:Policy>
